@@ -3,16 +3,18 @@ var veryHungry = false;
 function setup() {
 
   // Change these to change the title and author of the story
-  document.getElementById('title').innerHTML="Goldilocks & the Three Bears"; // title
+  document.getElementById('title').innerHTML="Survive"; // title
 
-  document.getElementById('author').innerHTML="Jon Stapleton"; // author
+  document.getElementById('author').innerHTML="Philip and Chase"; // author
 
 
-  
+
   // All of your code goes under here
-  
 
-  var story = 'Goldilocks has been lost in the woods for ' + many() + ' hours. Eventually she discovers a house, and smells something delicious. ' + delicious(); // Create the text
+
+  var story = 'Jeff is one of the few survivers, and has to constantly scavange for food. He has  ' + many() + ' days of supplies left. He will have to go scavange for more soon. ' + delicious(); //
+
+
 
   printToPage(story); // Print the text to the webpage
 }
@@ -31,7 +33,7 @@ function many() {
 
 function delicious() {
   if(veryHungry == true) {
-    return "Goldilocks is very hungry, so she goes inside."
+    return "Jeff gets to a gas station, but discovers a zombie there. He is attacked by the zombie and joins the rest of the world." + zombie();
   } else {
     let inspection = inspects();
     return inspection;
@@ -40,13 +42,21 @@ function delicious() {
 
 function inspects() {
   let insp = random(1, 6);
-  if(insp > 5) {
-    return "Goldilocks sees fresh bear tracks leaving the house!"
+  if(insp > 2) {
+    return "Jeff doesn't seem to find any place to loot at, and decides to go back before it's too late."
   } else {
-    return "Goldilocks inspects the house and everything seems alright. She goes inside."
+    return "Jeff gets to a gas station undetected, and manages to find some useful things."
   }
 }
 
+function zombie() {
+  let insp = random(1,6);
+  if(insp < 2) {
+    return " Jeff wakes up from acoma, turns out his sufers weren't real."
+  } else {
+    return " Jeff wakes up from acoma, turns out all he went through was fake."
+  }
+}
 
 //Don't delete this!
 function printToPage(story) {
@@ -54,4 +64,4 @@ function printToPage(story) {
   var t = document.createTextNode(story);
   para.appendChild(t);
   document.getElementById("story").appendChild(para);
-}    
+}
